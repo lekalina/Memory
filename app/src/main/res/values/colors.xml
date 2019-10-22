@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#222222</color>
     <color name="colorAccent">#BBBBBB</color>
 
+    <color name="logo_color_cards_up">#00ffff</color>
+    <color name="logo_color_cards_down">#aaffff</color>
+    <color name="logo_color_background">#2D2D2D</color>
+
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent_black">#22000000</color>
