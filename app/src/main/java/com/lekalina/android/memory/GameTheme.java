@@ -2,12 +2,13 @@ package com.lekalina.android.memory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
+import java.util.TimeZone;
 
 class GameTheme {
 
-    private final String none = "default";
     private final String emoji = "emoji";
     private final String halloween = "halloween";
     private final String thanksgiving = "thanksgiving";
@@ -28,11 +29,25 @@ class GameTheme {
     List<String> imageArray = new ArrayList<>();
 
     GameTheme() {
-        setTheme(none);
+        setTheme(getBaseTheme());
+    }
+
+    private String getBaseTheme() {
+        Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+        int currentMonth = calendar.get(Calendar.MONTH); // January starts at 0 not 1
+        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+        switch (currentMonth) {
+            case Calendar.OCTOBER : { return halloween; }
+            case Calendar.NOVEMBER : { return thanksgiving; }
+            case Calendar.DECEMBER : { return christmas; }
+            case Calendar.FEBRUARY : { return currentDay < 15 ? valentines : emoji; }
+            case Calendar.APRIL : { return plants; }
+            default: { return emoji; }
+        }
     }
 
     void setRandomTheme() {
-        String[] themes = {none, emoji, halloween, thanksgiving, christmas, valentines, animals, ocean, plants, birds, fruit, food, weather};
+        String[] themes = {emoji, halloween, thanksgiving, christmas, valentines, animals, ocean, plants, birds, fruit, food, weather};
         int randomIndex = new Random().nextInt(themes.length);
         String cardTheme = themes[randomIndex];
         selectedTheme = cardTheme;
