@@ -5,7 +5,6 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.kotlinxSerialization)
-    //alias(libs.plugins.mokoResources)
 }
 
 kotlin {
@@ -62,7 +61,6 @@ kotlin {
             api(libs.moko.mvvm.compose)
             api(libs.moko.mvvm.flow)
             api(libs.moko.mvvm.livedata)
-            //api(libs.moko.resources.compose)
             implementation(libs.lottie.compose)
             implementation(libs.koin)
             implementation(libs.koin.compose)
@@ -109,11 +107,3 @@ android {
     }
 
 }
-
-/*multiplatformResources {
-    multiplatformResourcesPackage = "org.example.project" // required
-    //multiplatformResourcesClassName = "SharedRes" // optional, default MR
-    //multiplatformResourcesVisibility = MRVisibility.Internal // optional, default Public
-    //iosBaseLocalizationRegion = "en" // optional, default "en"
-    //multiplatformResourcesSourceSet = "commonClientMain"  // optional, default "commonMain"
-}*/
