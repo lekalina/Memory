@@ -70,8 +70,9 @@ fun MemoryGameScreen(
             .background(color = MaterialTheme.colors.background)
             .padding(StandardMargin)
     ) {
+        val minSize = (if(minWidth < minHeight) minWidth else minHeight)
         val density = LocalDensity.current
-        val cardSize = maxWidth / level.root
+        val cardSize = (minSize / level.root) - StandardMargin
         MemoryLevels(level) { vm.changeLevel(it) }
         LazyVerticalGrid(
             modifier = Modifier.padding(top = StandardToolbarHeight),
