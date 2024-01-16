@@ -1,8 +1,8 @@
 package domain.repos
 
-import data.models.MemoryDeck
-import data.models.MemoryLevel
-import data.models.getDeckFromThemeKey
+import data.models.memory.MemoryDeck
+import data.models.memory.MemoryLevel
+import data.models.memory.getDeckFromThemeKey
 import domain.source.LocalSource
 
 class MemoryRepo(

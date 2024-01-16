@@ -17,6 +17,7 @@ import ui.screens.ImageScreen
 import ui.screens.memory.MemoryGameScreen
 import ui.screens.settings.ChangeGameThemeScreen
 import ui.screens.settings.SettingsScreen
+import ui.screens.simon.SimonScreen
 import ui.theme.MemoryTheme
 
 @Composable
@@ -40,6 +41,7 @@ fun BaseContent(
             NavRoute.Memory -> MemoryGameScreen()
             NavRoute.Settings -> SettingsScreen(nav = navVM)
             NavRoute.GameThemes -> ChangeGameThemeScreen(nav = navVM)
+            NavRoute.Simon -> SimonScreen()
         }
         Box(modifier = Modifier.align(Alignment.BottomCenter)) {
             BottomNavigation(navVM)

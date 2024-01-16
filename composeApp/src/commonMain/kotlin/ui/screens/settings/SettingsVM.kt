@@ -1,7 +1,7 @@
 package ui.screens.settings
 
-import data.models.MemoryDeck
-import data.models.getDeckFromThemeKey
+import data.models.memory.MemoryDeck
+import data.models.memory.getDeckFromThemeKey
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import domain.repos.SettingsRepo
 import kotlinx.coroutines.flow.Flow

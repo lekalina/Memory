@@ -35,9 +35,9 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import data.models.MemoryCard
-import data.models.MemoryDeck
-import data.models.MemoryLevel
+import data.models.memory.MemoryCard
+import data.models.memory.MemoryDeck
+import data.models.memory.MemoryLevel
 import org.koin.compose.koinInject
 import ui.common.pxToDp
 import ui.theme.CardCornerRadius

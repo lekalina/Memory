@@ -9,7 +9,7 @@ class NavigationVM: ViewModel() {
     private val _currentScreen = MutableStateFlow<NavRoute>(NavRoute.Memory)
     val currentScreen = _currentScreen
     private val routeBackStack = mutableListOf<NavRoute>(NavRoute.Memory)
-    val bottomNavItems = listOf(NavRoute.Memory, NavRoute.Settings)
+    val bottomNavItems = listOf(NavRoute.Simon, NavRoute.Memory, NavRoute.Settings)
 
     fun navigate(route: NavRoute) {
         if (currentScreen.value != route) {

@@ -12,3 +12,4 @@ val CardFontSize = 30.sp
 val CardToCardMargin = 3.dp
 val IconSize = 24.dp
 val BorderWidth = 3.dp
+val SimonCardSize = 150.dp

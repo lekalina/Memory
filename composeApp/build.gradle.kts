@@ -70,6 +70,10 @@ kotlin {
         iosMain.dependencies {
             implementation(libs.ktor.client.native)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.coroutines.test)
+        }
     }
 }
 

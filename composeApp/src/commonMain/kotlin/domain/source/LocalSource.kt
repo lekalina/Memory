@@ -5,8 +5,8 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
-import data.models.MemoryDeck
-import data.models.MemoryLevel
+import data.models.memory.MemoryDeck
+import data.models.memory.MemoryLevel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
@@ -17,6 +17,7 @@ class LocalSource(
 ) {
     val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
     private val gameThemeConfig = stringPreferencesKey("game_them_config")
+    private val simonGameBestScore = intPreferencesKey("simon_best_score")
     private val memoryGameBestScoreEasy = intPreferencesKey("memory_best_score_easy")
     private val memoryGameBestScoreMedium = intPreferencesKey("memory_best_score_medium")
     private val memoryGameBestScoreHard = intPreferencesKey("memory_best_score_hard")
@@ -89,5 +90,16 @@ class LocalSource(
     val memoryBestScoreHardFlow: Flow<Int?> = dataStore.data
         .map { preferences ->
             preferences[memoryGameBestScoreHard]
+        }
+
+    suspend fun updateSimonBestScore(score: Int) {
+        dataStore.edit { preferences ->
+            preferences[simonGameBestScore] = score
+        }
+    }
+
+    val simonBestScoreFlow: Flow<Int?> = dataStore.data
+        .map { preferences ->
+            preferences[simonGameBestScore]
         }
 }

@@ -1,4 +1,4 @@
-package data.models
+package data.models.memory
 
 import androidx.compose.ui.graphics.Color
 import ui.theme.AnimalGreen

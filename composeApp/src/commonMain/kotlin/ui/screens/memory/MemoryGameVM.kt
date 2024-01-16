@@ -1,8 +1,8 @@
 package ui.screens.memory
 
-import data.models.MemoryDeck
-import data.models.MemoryGame
-import data.models.MemoryLevel
+import data.models.memory.MemoryDeck
+import data.models.memory.MemoryGame
+import data.models.memory.MemoryLevel
 import dev.icerock.moko.mvvm.viewmodel.ViewModel
 import domain.repos.MemoryRepo
 import kotlinx.coroutines.Dispatchers

@@ -1,4 +1,4 @@
-package data.models
+package data.models.memory
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.random.Random
