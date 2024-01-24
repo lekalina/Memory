@@ -11,9 +11,7 @@ import dev.icerock.moko.mvvm.compose.viewModelFactory
 import ui.navigation.BottomNavigation
 import ui.navigation.NavRoute
 import ui.navigation.NavigationVM
-import ui.screens.CharacterScreen
 import ui.screens.HomeScreen
-import ui.screens.ImageScreen
 import ui.screens.memory.MemoryGameScreen
 import ui.screens.settings.ChangeGameThemeScreen
 import ui.screens.settings.SettingsScreen
@@ -35,8 +33,6 @@ fun BaseContent(
     val currentScreen by navVM.currentScreen.collectAsState()
     Box(modifier = Modifier.fillMaxSize()) {
         when(currentScreen) {
-            NavRoute.Characters -> CharacterScreen()
-            NavRoute.SampleImages -> ImageScreen()
             NavRoute.Home -> HomeScreen()
             NavRoute.Memory -> MemoryGameScreen()
             NavRoute.Settings -> SettingsScreen(nav = navVM)

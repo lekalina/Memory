@@ -13,9 +13,10 @@ class SettingsVM(
 ): ViewModel() {
 
     val gameThemes = repo.gameThemes
-    val bestScoreEasy = repo.bestScoreEasy
-    val bestScoreMedium = repo.bestScoreMedium
-    val bestScoreHard = repo.bestScoreHard
+    val bestMemoryScoreEasy = repo.bestMemoryScoreEasy
+    val bestMemoryScoreMedium = repo.bestMemoryScoreMedium
+    val bestMemoryScoreHard = repo.bestMemoryScoreHard
+    val bestSimonScore = repo.bestSimonScore
 
     val currentGameTheme: Flow<MemoryDeck> = repo.gameTheme.map { it.getDeckFromThemeKey() }
 

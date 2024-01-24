@@ -13,7 +13,8 @@ class SettingsRepo(
 
     val gameTheme = local.gameThemeFlow
 
-    val bestScoreEasy = local.memoryBestScoreEasyFlow
-    val bestScoreMedium = local.memoryBestScoreMediumFlow
-    val bestScoreHard = local.memoryBestScoreHardFlow
+    val bestMemoryScoreEasy = local.memoryBestScoreEasyFlow
+    val bestMemoryScoreMedium = local.memoryBestScoreMediumFlow
+    val bestMemoryScoreHard = local.memoryBestScoreHardFlow
+    val bestSimonScore = local.simonBestScoreFlow
 }

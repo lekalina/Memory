@@ -15,7 +15,7 @@ import kotlinx.coroutines.runBlocking
 class LocalSource(
     private val dataStore: DataStore<Preferences>
 ) {
-    val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
+
     private val gameThemeConfig = stringPreferencesKey("game_them_config")
     private val simonGameBestScore = intPreferencesKey("simon_best_score")
     private val memoryGameBestScoreEasy = intPreferencesKey("memory_best_score_easy")
@@ -39,17 +39,6 @@ class LocalSource(
         MemoryDeck.Christmas,
         MemoryDeck.Valentines,
     )
-
-    suspend fun updateExampleCounter(newCounter: Int) {
-        dataStore.edit { preferences ->
-            preferences[EXAMPLE_COUNTER] = newCounter
-        }
-    }
-
-    val exampleCounterFlow: Flow<Int?> = dataStore.data
-        .map { preferences ->
-            preferences[EXAMPLE_COUNTER]
-        }
 
     suspend fun updateGameTheme(theme: String) {
         dataStore.edit { preferences ->

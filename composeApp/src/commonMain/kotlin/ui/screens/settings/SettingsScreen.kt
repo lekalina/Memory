@@ -52,9 +52,10 @@ fun SettingsScreen(
     nav: NavigationVM
 ) {
     val currentGameTheme by vm.currentGameTheme.collectAsState(MemoryDeck.Emotions)
-    val bestEasy by vm.bestScoreEasy.collectAsState(null)
-    val bestMedium by vm.bestScoreMedium.collectAsState(null)
-    val bestHard by vm.bestScoreHard.collectAsState(null)
+    val bestEasy by vm.bestMemoryScoreEasy.collectAsState(null)
+    val bestMedium by vm.bestMemoryScoreMedium.collectAsState(null)
+    val bestHard by vm.bestMemoryScoreHard.collectAsState(null)
+    val simonScore by vm.bestSimonScore.collectAsState(null)
     LazyColumn(Modifier.fillMaxSize().background(color = MaterialTheme.colors.background)) {
         item {
             Text(
@@ -75,9 +76,39 @@ fun SettingsScreen(
                 color = MaterialTheme.colors.onBackground
             )
         }
-        item {
-            Box(Modifier.fillMaxWidth().clickable { nav.navigate(NavRoute.GameThemes) }) {
-                GameStats(bestEasy, bestMedium, bestHard)
+        item { MemoryGameStats(bestEasy, bestMedium, bestHard) }
+        item { SimonGameStats(bestScore = simonScore) }
+    }
+}
+
+@OptIn(ExperimentalResourceApi::class)
+@Composable
+fun SimonGameStats(
+    bestScore: Int?
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth().padding(
+            start = StandardMargin,
+            end = StandardMargin,
+            top = HalfMargin,
+            bottom = HalfMargin
+        ),
+        elevation = CardElevation,
+        shape = RoundedCornerShape(CardCornerRadius),
+    ) {
+        Column(Modifier.fillMaxWidth().padding(StandardMargin)) {
+            Row(Modifier.fillMaxWidth()) {
+                Icon(
+                    painter = painterResource(res = "ic_simon.xml"),
+                    contentDescription = "simon icon",
+                    tint = MaterialTheme.colors.primaryVariant
+                )
+                Text(
+                    modifier = Modifier.padding(start = StandardMargin),
+                    text = "Simon: Best Score - $bestScore",
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colors.onSurface
+                )
             }
         }
     }
@@ -85,7 +116,7 @@ fun SettingsScreen(
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun GameStats(
+fun MemoryGameStats(
     bestEasy: Int?,
     bestMedium: Int?,
     bestHard: Int?
@@ -109,7 +140,7 @@ fun GameStats(
                 )
                 Text(
                     modifier = Modifier.padding(start = StandardMargin),
-                    text = "Best Score",
+                    text = "Memory: Best Score",
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colors.onSurface
                 )
